@@ -1,0 +1,62 @@
+# Get Native Balance for an Address
+
+> Retrieves the native token balance held by a specific address.
+
+export const TryEndpointLink = ({href, label = 'Try this endpoint in your', linkText = 'browser'}) => {
+  if (!href) {
+    return null;
+  }
+  const isExternal = (/^https?:/i).test(href);
+  return <p className="mt-4 text-base font-medium text-zinc-900 dark:text-zinc-100">
+      {label}{' '}
+      <a href={href} className="font-semibold text-primary-600 hover:underline" target={isExternal ? '_blank' : undefined} rel={isExternal ? 'noopener noreferrer' : undefined}>
+        {linkText}
+      </a>
+      .
+    </p>;
+};
+
+export const chainCurrency = 'ETH';
+
+export const chain = '1';
+
+### Query Parameters
+
+<ParamField query="apikey" default="YourApiKeyToken" type="string">
+  Your Etherscan API key.
+</ParamField>
+
+<ParamField query="chainid" default="1" type="string">
+  Chain ID to query, eg `1` for Ethereum, `8453` for Base from our [supported chains](/supported-chains).
+</ParamField>
+
+<ParamField query="module" default="account" type="string">
+  Set to `account` for this endpoint.
+</ParamField>
+
+<ParamField query="action" default="balance" type="string">
+  Set to `balance` for this endpoint.
+</ParamField>
+
+<ParamField query="address" default="0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae" type="string">
+  The address to query, like `0xfefefefefefefefefefefefefefefefefefefefe`. Up to 20 addresses can be queried, separated by commas.
+</ParamField>
+
+<ParamField query="tag" default="latest" type="string">
+  Use `latest` for the last block number of the chain. Also accepts a specific block number in hex format, like `0x10d4f` up to the last 128 blocks. For historical balances, use the [Historical Balance](/api-reference/endpoint/balancehistory) endpoint.
+</ParamField>
+
+<ResponseExample>
+  ```json Response theme={null}
+  {
+     "status":"1",
+     "message":"OK",
+     "result":"172774397764084972158218"
+  }
+  ```
+</ResponseExample>
+
+
+---
+
+> To find navigation and other pages in this documentation, fetch the llms.txt file at: https://docs.etherscan.io/llms.txt
