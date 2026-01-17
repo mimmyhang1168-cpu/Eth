@@ -38,7 +38,7 @@ export const chain = '1';
   Set to `balance` for this endpoint.
 </ParamField>
 
-<ParamField query="address" default="0xD592c361F3586c38DCF56180794750f0dEf72784" type="string">
+<ParamField query="address" default="0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae" type="string">
   The address to query, like `0xfefefefefefefefefefefefefefefefefefefefe`. Up to 20 addresses can be queried, separated by commas.
 </ParamField>
 
